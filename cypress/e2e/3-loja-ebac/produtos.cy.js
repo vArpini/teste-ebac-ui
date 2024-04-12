@@ -1,16 +1,28 @@
 /// <reference types="cypress"/>
 
+import produtosPage from "../../support/page-objects/produtos.page";
+
 describe('Funcionalidade: Produtos', () => {
 
     beforeEach(() => {
-        cy.visit('produtos')
+        produtosPage.visitarUrl()
     });
 
     it('Deve selecionar um produto da lista', () => {
-        cy.get('.product-block').first().click()
-        // .last() ele pega o ultimo da lista
-        // .eq(2) ele pega a posição 2 da lista
-        // .contains('Frankie Sweatshirt') ele pega o nome
-        cy.get('#tab-title-description > a').should('contain', 'Descrição')
+        produtosPage.buscarProdutoLista('Beaumont Summit Kit')
+            cy.get('#tab-title-description > a').should('contain', 'Descricao')
+    });
+
+    it.only('Deve buscar um produto com sucesso', () => {
+        produtosPage.buscarProduto('Zeppelin Yoga Pant')
+        cy.get('.product_title').should('contain', 'Zeppelin Yoga Pant')
+    });
+
+    it('Deve visitar a página do produto', () => {
+        
+    });
+
+    it('Deve adicionar produto ao carrinho', () => {
+        
     });
 });
