@@ -9,8 +9,8 @@ describe('Funcionalidade: Login', () => {
     });
 
     it('Deve fazer login com sucesso', () => {
-        cy.get('#username').type('vini.teste@teste.com.br')
-        cy.get('#password').type('teste@123')
+        cy.get('#username').type('vini.arpini@teste.com')
+        cy.get('#password').type('teste')
         cy.get('.woocommerce-form > .button').click()
 
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, vini.teste (não é vini.teste? Sair)')
@@ -50,6 +50,6 @@ describe('Funcionalidade: Login', () => {
         })
     });
     it.only('Deve fazer login com sucesso - usando comandos customizados', () => {
-        cy.login('vini.teste@teste.com.br', 'teste@123')
+        cy.login('vini.arpini@teste.com', 'teste')
     });
 })
