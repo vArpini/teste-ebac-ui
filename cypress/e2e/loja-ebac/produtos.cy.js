@@ -9,8 +9,8 @@ describe('Funcionalidade: Produtos', () => {
     });
 
     it('Deve selecionar um produto da lista', () => {
-        produtosPage.buscarProdutoLista('Beaumont Summit Kit')
-            cy.get('#tab-title-description > a').should('contain', 'Descricao')
+        produtosPage.buscarProduto('Beaumont Summit Kit')
+            cy.get('.product_title').should('contain', 'Beaumont Summit Kit')
     });
 
     it('Deve buscar um produto com sucesso', () => {
